@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <link rel="icon" type="image/png" href="/icon-512.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#050a07">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header>
+    <a href="/" class="brand"><span class="prompt">$</span> byte.glass</a>
+  </header>
+  <main>
+    {{body}}
+  </main>
+  <footer>
+    <span class="sig" aria-hidden="true">⣧⡇⣤⣧</span>
+    <span class="copy">byte.glass · contact <a href="mailto:support@x-amz.dev">support@x-amz.dev</a></span>
+  </footer>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Expanded screenshot">
+    <button class="lightbox-close" aria-label="Close" type="button">×</button>
+    <img alt="">
+  </dialog>
+  <script>
+  (function () {
+    var dlg = document.getElementById('lightbox');
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    var full = dlg.querySelector('img');
+    var close = dlg.querySelector('.lightbox-close');
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('.screenshot-trigger');
+      if (!a) return;
+      e.preventDefault();
+      var thumb = a.querySelector('img');
+      full.src = a.getAttribute('href');
+      full.alt = (thumb && thumb.alt) || '';
+      dlg.showModal();
+    });
+    dlg.addEventListener('click', function (e) {
+      // Close on any click inside the dialog that isn't on the image itself.
+      // (Clicking the image should not dismiss; everything else — backdrop,
+      // padding, close button — should.)
+      if (e.target !== full) dlg.close();
+    });
+    dlg.addEventListener('close', function () { full.src = ''; });
+  })();
+  </script>
+</body>
+</html>

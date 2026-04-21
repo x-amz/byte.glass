@@ -1,0 +1,13 @@
+{
+  "name": "byte.glass",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "serve": "node build.js && python3 -m http.server -b 127.0.0.1 -d dist 4000"
+  },
+  "dependencies": {
+    "marked": "^16.0.0"
+  }
+}
