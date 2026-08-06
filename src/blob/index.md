@@ -18,6 +18,8 @@ blob turns Shortcuts into a proper toolkit for binary data. It ships a suite of 
 
 blob uses a base-256 encoding built from Braille Unicode characters. Every possible byte gets its own glyph — an assortment like <code>⢀⡀⠢⣒⢕⣾⢛⣿</code>. One character, one byte. Binary data becomes compact, copy-pasteable, and visually distinct from any other encoding — so when a Shortcuts variable holds blob, you know at a glance it's bytes.
 
+The codec is open source: [swift-base256-blob](https://github.com/x-amz/swift-base256-blob) packages the same encoding as a standalone Swift library (MIT).
+
 ## Supported encodings
 
 Here are the five bytes of `Hello` rendered in every encoding blob understands:

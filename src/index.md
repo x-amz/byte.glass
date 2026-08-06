@@ -27,10 +27,12 @@ Binary doesn't have to look like a wall of hex or slip past you disguised as tex
   </div>
 </section>
 
-<section class="project project--soon">
-  <span class="project-icon project-icon--glyph" aria-hidden="true">⣧</span>
+<section class="project">
+  <a class="project-icon-link project-icon-link--external" href="https://github.com/x-amz/swift-base256-blob" aria-hidden="true">
+    <span class="project-icon project-icon--glyph">⣧</span>
+  </a>
   <div class="project-body">
-    <h3>Base256 codec <span class="soon-tag">coming soon</span></h3>
-    <p>A Swift package for blob's base-256 Braille encoding, pulled out as a standalone library so other projects can share the same "this is bytes" glyph set.</p>
+    <h3><a href="https://github.com/x-amz/swift-base256-blob">swift-base256-blob</a></h3>
+    <p>blob's base-256 Braille codec as a standalone Swift package — one character per byte, a byte's hex nibbles as the two dot columns of its cell. The core has no dependencies, not even Foundation. MIT, on <a href="https://github.com/x-amz/swift-base256-blob">GitHub</a>.</p>
   </div>
 </section>
