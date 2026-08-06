@@ -23,7 +23,7 @@ Binary doesn't have to look like a wall of hex or slip past you disguised as tex
   </a>
   <div class="project-body">
     <h3><a href="https://hmac.sh">hmac.sh</a></h3>
-    <p>A single-page, client-side tool for building HMAC-SHA256 derivation chains. Paste a key, add signing steps, see every intermediate value. The chain is stored in the URL fragment, so a link reproduces it exactly — and nothing is sent to a server.</p>
+    <p>HMAC-SHA256 as a URL. The path is the derivation chain: <code>/{key}/{data}/…</code>, computed at the CloudFront edge, each digest keying the next step. Results redirect to <code>/{digest}</code> — append another segment to keep deriving. Two data segments get <code>aws4_request</code> appended, so a SigV4 signing key is one URL away.</p>
   </div>
 </section>
 
