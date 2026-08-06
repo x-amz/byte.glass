@@ -23,7 +23,7 @@ Binary doesn't have to look like a wall of hex or slip past you disguised as tex
   </a>
   <div class="project-body">
     <h3><a href="https://hmac.sh">hmac.sh</a></h3>
-    <p>A single-page, client-side tool for building and sharing HMAC-SHA256 derivation chains. Paste a key, add signing steps, share the URL — the whole chain travels in the hash.</p>
+    <p>A single-page, client-side tool for building HMAC-SHA256 derivation chains. Paste a key, add signing steps, see every intermediate value. The chain is stored in the URL fragment, so a link reproduces it exactly — and nothing is sent to a server.</p>
   </div>
 </section>
 
@@ -33,6 +33,6 @@ Binary doesn't have to look like a wall of hex or slip past you disguised as tex
   </a>
   <div class="project-body">
     <h3><a href="https://github.com/x-amz/swift-base256-blob">swift-base256-blob</a></h3>
-    <p>blob's base-256 Braille codec as a standalone Swift package — one character per byte, a byte's hex nibbles as the two dot columns of its cell. The core has no dependencies, not even Foundation. MIT, on <a href="https://github.com/x-amz/swift-base256-blob">GitHub</a>.</p>
+    <p>blob's base-256 Braille codec as a standalone Swift package — one character per byte, a byte's hex nibbles as the two dot columns of its cell. The core has no dependencies, not even Foundation.</p>
   </div>
 </section>
