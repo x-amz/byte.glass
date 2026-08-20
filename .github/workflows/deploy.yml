@@ -36,9 +36,18 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.fonts-token.outputs.token }}
         run: |
+          # Actions runs `bash -e` without pipefail, so a piped `gh ... | tar`
+          # exits 0 when the download fails and the site deploys with no faces
+          # and a green tick. Download to a file, then assert what landed.
+          set -euo pipefail
           mkdir -p static/fonts
           gh release download "$FONTS_VERSION" --repo x-amz/webfonts \
-            --pattern byte-glass.tar.gz --output - | tar xz -C static/fonts
+            --pattern byte-glass.tar.gz --dir "$RUNNER_TEMP"
+          tar xzf "$RUNNER_TEMP/byte-glass.tar.gz" -C static/fonts
+          test -f static/fonts/fonts.css
+          faces=$(find static/fonts -name '*.woff2' | wc -l | tr -d ' ')
+          [ "$faces" -gt 0 ]
+          echo "fetched $faces faces from $FONTS_VERSION"
 
       - uses: actions/setup-node@v4
         with:
