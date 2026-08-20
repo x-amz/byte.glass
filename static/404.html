@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — byte.glass</title>
+  <meta name="description" content="No such page.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="/icon-512.png">
+  <link rel="preload" href="/fonts/ConcourseC4-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/CascadiaMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/clock.js" defer></script>
+  <meta name="theme-color" content="#060807">
+</head>
+<body>
+  <header class="bezel top">
+    <a class="clock" href="/" aria-label="byte.glass — home"><span id="clock" aria-hidden="true">byte.glass</span></a>
+  </header>
+  <main>
+    <div class="readout screen fault">
+      <p class="readout-glyphs" role="img" aria-label="404, two bytes encoded as blob">⢀⡑</p>
+      <p class="readout-spec"><span>fault</span> <b>404</b> <span>uint16 be</span> <b>01 94</b></p>
+      <p class="readout-note">no such page</p>
+    </div>
+    <p class="fault-back"><a href="/">← home</a></p>
+  </main>
+  <footer class="bezel bottom">
+    <span class="sig" aria-hidden="true">⣧⡇⣤⣧</span>
+    <span><a href="https://x-amz.dev">an x-amz production</a> · <a href="mailto:support@x-amz.dev">support@x-amz.dev</a></span>
+  </footer>
+</body>
+</html>

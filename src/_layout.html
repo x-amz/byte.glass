@@ -7,23 +7,25 @@
   <meta name="description" content="{{description}}">
   <link rel="icon" type="image/png" href="/icon-512.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+{{fonts_preload}}
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/clock.js" defer></script>
   <meta property="og:title" content="{{title}}">
   <meta property="og:description" content="{{description}}">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#050a07">
+  <meta name="theme-color" content="#060807">
 </head>
 <body>
-  <div class="scanlines" aria-hidden="true"></div>
-  <header>
-    <a href="/" class="brand"><span class="prompt">$</span> byte.glass</a>
+  <header class="bezel top">
+    <a class="clock" href="/" aria-label="byte.glass — home"><span id="clock" aria-hidden="true">byte.glass</span></a>
   </header>
   <main>
     {{body}}
   </main>
-  <footer>
+  <footer class="bezel bottom">
     <span class="sig" aria-hidden="true">⣧⡇⣤⣧</span>
-    <span class="copy">byte.glass · contact <a href="mailto:support@x-amz.dev">support@x-amz.dev</a></span>
+    <span><a href="https://x-amz.dev">an x-amz production</a> · <a href="mailto:support@x-amz.dev">support@x-amz.dev</a></span>
   </footer>
 
   <dialog id="lightbox" class="lightbox" aria-label="Expanded screenshot">

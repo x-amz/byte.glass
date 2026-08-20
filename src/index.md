@@ -1,38 +1,22 @@
-# byte.glass
+<h1 class="mast">Byte Glass</h1>
 
-Tools for seeing bytes clearly.
+<!-- title: Byte Glass -->
+<!-- description: blob, hmac.sh, and swift-base256-blob — tools for binary data. -->
 
-Binary doesn't have to look like a wall of hex or slip past you disguised as text. These projects each pick a small seam in how we look at data and pry it open a little.
-
-## Projects
-
-<section class="project">
-  <a class="project-icon-link" href="/blob/">
-    <img class="project-icon" src="/blob/app-icon.png" alt="blob app icon" width="88" height="88">
-  </a>
-  <div class="project-body">
-    <h3><a href="/blob/">blob</a></h3>
+<div class="projects">
+  <a class="card card--full" href="/blob/">
+    <div class="card-head">
+      <img class="card-icon" src="/blob/app-icon.png" alt="" width="48" height="48">
+      <h3>blob</h3>
+    </div>
     <p>A Shortcuts toolkit for binary data on iOS. Type-safe encoding, a suite of read/print actions, and a compact Braille-based base-256 format that makes bytes visibly distinct from any other string you'll paste into a shortcut.</p>
-    <p>Available on the <a href="https://apps.apple.com/us/app/blob-better-binary/id6749558236">App Store</a>.</p>
-  </div>
-</section>
-
-<section class="project">
-  <a class="project-icon-link project-icon-link--external" href="https://hmac.sh" aria-hidden="true">
-    <span class="project-icon project-icon--glyph">$</span>
   </a>
-  <div class="project-body">
-    <h3><a href="https://hmac.sh">hmac.sh</a></h3>
-    <p>HMAC-SHA256 as a URL. The path is the derivation chain: <code>/{key}/{data}/…</code>, computed at the CloudFront edge, each digest keying the next step. Results redirect to <code>/{digest}</code> — append another segment to keep deriving.</p>
-  </div>
-</section>
-
-<section class="project">
-  <a class="project-icon-link project-icon-link--external" href="https://github.com/x-amz/swift-base256-blob" aria-hidden="true">
-    <span class="project-icon project-icon--glyph">⣧</span>
+  <a class="card" href="https://hmac.sh">
+    <h3>hmac.sh</h3>
+    <p>HMAC-SHA256 as a URL — the path is the derivation chain.</p>
   </a>
-  <div class="project-body">
-    <h3><a href="https://github.com/x-amz/swift-base256-blob">swift-base256-blob</a></h3>
-    <p>blob's base-256 Braille codec as a standalone Swift package — one character per byte, a byte's hex nibbles as the two dot columns of its cell. The core has no dependencies, not even Foundation.</p>
-  </div>
-</section>
+  <a class="card" href="https://github.com/x-amz/swift-base256-blob">
+    <h3>swift-base256-blob<span class="card-glyph" aria-hidden="true">⣧</span></h3>
+    <p>The <code>blob</code> codec, standalone — no dependencies, not even Foundation.</p>
+  </a>
+</div>

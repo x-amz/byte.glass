@@ -4,7 +4,7 @@
 
 # blob
 
-<p class="tagline">blob brings binary to your shortcuts.</p>
+<p class="tagline"><code>blob</code> brings binary to your shortcuts.</p>
 
 </section>
 
@@ -12,17 +12,32 @@
 
 ![A demo shortcut chaining blob actions — Show alert Text, Read Text as text, Show alert blob, Print blob in hex, Show alert hex, Print blob in binary.](/blob/shortcut-blob-demo.jpeg)
 
-blob turns Shortcuts into a proper toolkit for binary data. It ships a suite of actions for encoding, decoding, and transforming bytes, plus a type-safe native format ("blob") that keeps binary and text visibly separate as they flow through a shortcut.
+`blob` turns Shortcuts into a proper toolkit for binary data. It ships a suite of actions for encoding, decoding, and transforming bytes, plus a type-safe native format (`blob`) that keeps binary and text visibly separate as they flow through a shortcut.
 
 ## blob encoding
 
-blob uses a base-256 encoding built from Braille Unicode characters. Every possible byte gets its own glyph — an assortment like <code>⢀⡀⠢⣒⢕⣾⢛⣿</code>. One character, one byte. Binary data becomes compact, copy-pasteable, and visually distinct from any other encoding — so when a Shortcuts variable holds blob, you know at a glance it's bytes.
+`blob` uses a base-256 encoding built from Braille Unicode characters. Every possible byte gets its own glyph — an assortment like <code>⢀⡀⠢⣒⢕⣾⢛⣿</code>. One character, one byte. Binary data becomes compact, copy-pasteable, and visually distinct from any other encoding — so when a Shortcuts variable holds `blob`, you know at a glance it's bytes.
 
-The codec is open source: [swift-base256-blob](https://github.com/x-amz/swift-base256-blob) packages the same encoding as a standalone Swift library (MIT).
+<figure class="anatomy screen" aria-label="Anatomy of one glyph: byte 0xB6. The high nibble B fills the left dot column, the low nibble 6 fills the right, most significant bit at the top, so the cell reads as the glyph for 0xB6.">
+  <div class="anatomy-grid" aria-hidden="true">
+    <span></span><span class="an-hex">B</span><span class="an-hex">6</span>
+    <span class="an-w">8</span><i class="on"></i><i></i>
+    <span class="an-w">4</span><i></i><i class="on"></i>
+    <span class="an-w">2</span><i class="on"></i><i class="on"></i>
+    <span class="an-w">1</span><i class="on"></i><i></i>
+  </div>
+  <div class="an-eq" aria-hidden="true">
+    <span class="an-arrow">→</span>
+    <span class="an-glyph">⡵</span>
+  </div>
+  <figcaption>0xB6 → ⡵ · high nibble left, low nibble right, msb on top — read the hex off the dots</figcaption>
+</figure>
+
+The codec is open source: [`swift-base256-blob`](https://github.com/x-amz/swift-base256-blob) packages the same encoding as a standalone Swift library (MIT).
 
 ## Supported encodings
 
-Here are the five bytes of `Hello` rendered in every encoding blob understands:
+Here are the five bytes of `Hello` rendered in every encoding `blob` understands:
 
 | encoding | example |
 | --- | --- |
@@ -39,15 +54,15 @@ Here are the five bytes of `Hello` rendered in every encoding blob understands:
 
 ![The Shortcuts action picker showing every blob action: Print Base32, Print Base64, Print Binary, Print Bytes, Print Decimal, Print Hex, Print Text, Random Bytes, Read Bytes, Substring.](/blob/action-list.jpeg)
 
-**Read Bytes** is the main input action. Point it at any supported encoding and it returns a blob. It auto-detects by default, or you can pick the encoding explicitly.
+**Read Bytes** is the main input action. Point it at any supported encoding and it returns a `blob`. It auto-detects by default, or you can pick the encoding explicitly.
 
-**Print Bytes** goes the other way — render a blob in any encoding. For convenience, **Print Hex**, **Print Binary**, **Print Decimal**, **Print Base32**, and **Print Base64** are available as dedicated actions, each returning a variable named after the encoding so chained shortcuts stay readable.
+**Print Bytes** goes the other way — render a `blob` in any encoding. For convenience, **Print Hex**, **Print Binary**, **Print Decimal**, **Print Base32**, and **Print Base64** are available as dedicated actions, each returning a variable named after the encoding so chained shortcuts stay readable.
 
-**Print Text** interprets a blob as UTF-8, falling back to ASCII with `.` placeholders for non-printable bytes.
+**Print Text** interprets a `blob` as UTF-8, falling back to ASCII with `.` placeholders for non-printable bytes.
 
 **Substring** slices any string by character position.
 
-**Random Bytes** returns pseudo-random bytes as a blob. (Not cryptographically secure.)
+**Random Bytes** returns pseudo-random bytes as a `blob`. (Not cryptographically secure.)
 
 ## Type safety
 
@@ -61,7 +76,7 @@ The example here is a shortcut that takes an AWS-style access key, strips the pr
 
 ![The blob app showing a history thread — utf8, decimal, base64url, and blob encoded messages — with the in-app info sheet explaining blob encoding and app features.](/blob/app-info-sheet.jpeg)
 
-blob is primarily a Shortcuts extension — but the app itself is a history viewer. As actions run, it records input, output, and each step of a chain so you can inspect, share, and debug.
+`blob` is primarily a Shortcuts extension — but the app itself is a history viewer. As actions run, it records input, output, and each step of a chain so you can inspect, share, and debug.
 
 - **Tap** a message to copy.
 - **Long-press** for the system share sheet.

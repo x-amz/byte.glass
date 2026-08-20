@@ -1,6 +1,6 @@
 # Support
 
-Hi — glad you're here. Whatever you've got — a question, a feature idea, a bug, or just something confusing — send it to [support@x-amz.dev](mailto:support@x-amz.dev). blob is a small app and real people read the mail.
+Hi — glad you're here. Whatever you've got — a question, a feature idea, a bug, or just something confusing — send it to [support@x-amz.dev](mailto:support@x-amz.dev). `blob` is a small app and real people read the mail.
 
 ## Not sure what to include?
 

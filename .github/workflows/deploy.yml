@@ -5,6 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  FONTS_VERSION: webfonts-v0.1.0
+
 permissions:
   contents: read
   pages: write
@@ -19,6 +22,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Fonts are commercially licensed and live in the private x-amz/webfonts
+      # repo; they are fetched here and never committed to this public one.
+      - uses: actions/create-github-app-token@v2
+        id: fonts-token
+        with:
+          app-id: ${{ vars.FONTS_APP_ID }}
+          private-key: ${{ secrets.FONTS_APP_KEY }}
+          owner: x-amz
+          repositories: webfonts
+      - name: Fetch webfonts
+        env:
+          GH_TOKEN: ${{ steps.fonts-token.outputs.token }}
+        run: |
+          mkdir -p static/fonts
+          gh release download "$FONTS_VERSION" --repo x-amz/webfonts \
+            --pattern byte-glass.tar.gz --output - | tar xz -C static/fonts
+
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -29,6 +50,9 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+          # Artifacts on a public repo are world-downloadable; keep the
+          # licensed faces around no longer than the deploy needs.
+          retention-days: 1
 
   deploy:
     needs: build
